@@ -69,3 +69,4 @@ Not financial advice. Not a trading bot. Educational only. Memecoins are high ri
 - Japan HSP Points Calculator (Japan Highly Skilled Professional visa points: 70 / 80 check, ¥3M salary floor, PR fast track in 1 or 3 years, J-Skip; keyless API): https://japan-hsp-points.vercel.app
 - Japan Pet Quarantine Check (bring a dog or cat to Japan or take one abroad: 180-day rule, 40-day AQS notice, detention days, 2027 export application; keyless API): https://japan-pet-quarantine.vercel.app
 - Japan Leaving Tax Check (leaving Japan: resident tax still owed, January 1 rule, tax agent / 納税管理人, departure deadlines; keyless API): https://japan-leaving-tax.vercel.app
+- Japan Disaster Prep Check (防災庁 emergency request: household water, food and portable-toilet stock, 旧耐震 home check; keyless API): https://japan-disaster-prep.vercel.app
