@@ -70,3 +70,4 @@ Not financial advice. Not a trading bot. Educational only. Memecoins are high ri
 - Japan Pet Quarantine Check (bring a dog or cat to Japan or take one abroad: 180-day rule, 40-day AQS notice, detention days, 2027 export application; keyless API): https://japan-pet-quarantine.vercel.app
 - Japan Leaving Tax Check (leaving Japan: resident tax still owed, January 1 rule, tax agent / 納税管理人, departure deadlines; keyless API): https://japan-leaving-tax.vercel.app
 - Japan Disaster Prep Check (防災庁 emergency request: household water, food and portable-toilet stock, 旧耐震 home check; keyless API): https://japan-disaster-prep.vercel.app
+- Japan Lost Item Check (lost something in Japan: who to contact, 遺失物法 hold periods, 14-day residence card reissue; keyless API): https://japan-lost-item.vercel.app
