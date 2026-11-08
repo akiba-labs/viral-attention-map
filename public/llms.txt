@@ -72,3 +72,4 @@ Not financial advice. Not a trading bot. Educational only. Memecoins are high ri
 - Japan Disaster Prep Check (防災庁 emergency request: household water, food and portable-toilet stock, 旧耐震 home check; keyless API): https://japan-disaster-prep.vercel.app
 - Japan Lost Item Check (lost something in Japan: who to contact, 遺失物法 hold periods, 14-day residence card reissue; keyless API): https://japan-lost-item.vercel.app
 - Japan High-Cost Medical Expense Check (Japan 高額療養費 monthly/annual medical cost caps; keyless API): https://japan-medical-cost-cap.vercel.app
+- Japan Job Loss Check (what to file after leaving a job in Japan: visa notice, unemployment insurance, health, pension; keyless API): https://japan-job-loss.vercel.app
