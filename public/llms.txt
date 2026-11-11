@@ -75,3 +75,4 @@ Not financial advice. Not a trading bot. Educational only. Memecoins are high ri
 - Japan Job Loss Check (what to file after leaving a job in Japan: visa notice, unemployment insurance, health, pension; keyless API): https://japan-job-loss.vercel.app
 - Japan Visa Renewal Window Check (when to renew a period of stay or residence card in Japan: window, special period, fees; keyless API): https://japan-visa-renewal.vercel.app
 - Japan JLPT Level Check (which JLPT level you need for Japanese visa rules: HSP, Business Manager, SSW, PR; keyless API): https://japan-jlpt-check.vercel.app
+- Japan Graduate Visa Check (when to switch from student to work visa after graduating in Japan: April-start filing window, job-hunting stay, part-time end; keyless API): https://japan-graduate-visa.vercel.app
