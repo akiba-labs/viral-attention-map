@@ -8,6 +8,7 @@ import { SourceCard } from "@/components/source-card";
 import { attentionSources } from "@/lib/attention-sources";
 import { RATE_LIMIT } from "@/lib/agent-api";
 import { DISCLAIMER, SHARE_TEXT } from "@/lib/copy";
+import { API_PAUSED_NOTE, isGithubPages, pagesSiteUrl } from "@/lib/hosting";
 import { PUBLIC_URL, SITE_NAME } from "@/lib/site";
 import { getTrends } from "@/lib/trends";
 
@@ -20,12 +21,12 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: `${title} · ${SITE_NAME}` },
   description,
-  alternates: { canonical: `${PUBLIC_URL}/` },
+  alternates: { canonical: isGithubPages ? `${pagesSiteUrl(PUBLIC_URL)}/` : `${PUBLIC_URL}/` },
   openGraph: {
     title,
     description,
     type: "website",
-    url: `${PUBLIC_URL}/`,
+    url: isGithubPages ? `${pagesSiteUrl(PUBLIC_URL)}/` : `${PUBLIC_URL}/`,
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: { card: "summary_large_image", title, description, images: ["/opengraph-image"] },
@@ -35,7 +36,7 @@ const appJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: SITE_NAME,
-  url: `${PUBLIC_URL}/`,
+  url: isGithubPages ? `${pagesSiteUrl(PUBLIC_URL)}/` : `${PUBLIC_URL}/`,
   applicationCategory: "EducationalApplication",
   operatingSystem: "Any (web browser)",
   isAccessibleForFree: true,
@@ -70,11 +71,15 @@ const faq: FaqItem[] = [
   },
   {
     q: "Is there an API for agents?",
-    a: `Yes, free and keyless, with CORS open. GET ${PUBLIC_URL}/api/patterns (optional ?platform=TikTok) returns how-attention-spreads patterns. GET ${PUBLIC_URL}/api/quiz returns the questions, or score with ?answers=reader,reader,inventor,reader,chaser,reader. Every response includes a disclaimer field. Fair use is about ${RATE_LIMIT} requests per minute per IP. OpenAPI: ${PUBLIC_URL}/openapi.json.`,
+    a: isGithubPages
+      ? API_PAUSED_NOTE
+      : `Yes, free and keyless, with CORS open. GET ${PUBLIC_URL}/api/patterns (optional ?platform=TikTok) returns how-attention-spreads patterns. GET ${PUBLIC_URL}/api/quiz returns the questions, or score with ?answers=reader,reader,inventor,reader,chaser,reader. Every response includes a disclaimer field. Fair use is about ${RATE_LIMIT} requests per minute per IP. OpenAPI: ${PUBLIC_URL}/openapi.json.`,
   },
   {
     q: "Can my AI assistant use this through MCP?",
-    a: "Yes. The tools viral_attention_patterns and viral_attention_quiz are on the free remote MCP server at https://free-agent-tools.vercel.app/mcp (streamable HTTP, no auth), together with the maker's other free tools. Add that URL to Claude, Cursor, ChatGPT, or another MCP client.",
+    a: isGithubPages
+      ? API_PAUSED_NOTE
+      : "Yes. The tools viral_attention_patterns and viral_attention_quiz are on the free remote MCP server at https://free-agent-tools.vercel.app/mcp (streamable HTTP, no auth), together with the maker's other free tools. Add that URL to Claude, Cursor, ChatGPT, or another MCP client.",
   },
   {
     q: "Does the site store my quiz answers or connect a wallet?",

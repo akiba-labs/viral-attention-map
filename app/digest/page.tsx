@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DigestForm } from "@/components/digest-form";
+import { API_PAUSED_NOTE, isGithubPages } from "@/lib/hosting";
 
 export const metadata: Metadata = {
   title: "Digest",
@@ -18,11 +19,12 @@ export default function DigestPage() {
       </h1>
       <p className="mt-5 max-w-2xl text-lg leading-relaxed text-paper/85">
         A short note when the map&apos;s lenses change. No token picks. No prompts
-        to act. This form is a stub: it checks the address and, only if this
-        deploy has an HTTPS webhook, forwards JSON there. Without that webhook,
-        nothing is stored.
+        to act.{" "}
+        {isGithubPages
+          ? API_PAUSED_NOTE
+          : "This form is a stub: it checks the address and, only if this deploy has an HTTPS webhook, forwards JSON there. Without that webhook, nothing is stored."}
       </p>
-      <DigestForm />
+      {isGithubPages ? null : <DigestForm />}
     </div>
   );
 }

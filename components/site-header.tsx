@@ -11,8 +11,13 @@ const LINKS = [
   { href: "/digest", label: "Digest" },
 ] as const;
 
+function currentPath(pathname: string): string {
+  if (pathname.length > 1 && pathname.endsWith("/")) return pathname.slice(0, -1);
+  return pathname;
+}
+
 export function SiteHeader() {
-  const pathname = usePathname();
+  const pathname = currentPath(usePathname());
 
   return (
     <header className="border-b border-line">

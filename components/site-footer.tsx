@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DISCLAIMER } from "@/lib/copy";
+import { API_PAUSED_NOTE, isGithubPages } from "@/lib/hosting";
 import { SIBLING_TOOLS } from "@/lib/site";
 
 export function SiteFooter() {
@@ -7,6 +8,7 @@ export function SiteFooter() {
     <footer className="mt-20 border-t border-line">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6">
         <p>{DISCLAIMER}</p>
+        {isGithubPages ? <p>{API_PAUSED_NOTE}</p> : null}
         <nav aria-label="Footer" className="flex flex-wrap gap-x-5 gap-y-2 font-mono text-[11px] tracking-[0.16em] uppercase">
           <Link href="/trends" className="hover:text-paper">
             Trends
