@@ -3,7 +3,8 @@ import { Fraunces, Geist_Mono, Outfit } from "next/font/google";
 import { DisclaimerBar } from "@/components/disclaimer-bar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteUrl } from "@/lib/site";
+import { isGithubPages, pagesSiteUrl } from "@/lib/hosting";
+import { PUBLIC_URL, siteUrl } from "@/lib/site";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -27,7 +28,7 @@ const description =
   "A free educational board of what is pulling eyes. Attention moves first. Price is late. Attention is not guaranteed money.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl()),
+  metadataBase: new URL(isGithubPages ? pagesSiteUrl(PUBLIC_URL) : siteUrl()),
   title: {
     default: "Viral Attention Map",
     template: "%s · Viral Attention Map",

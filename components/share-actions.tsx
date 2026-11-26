@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { isGithubPages, withBasePath } from "@/lib/hosting";
 
 type ShareActionsProps = {
   text: string;
@@ -16,7 +17,9 @@ export function ShareActions({
   const [notice, setNotice] = useState<string | null>(null);
 
   function shareUrl() {
-    return new URL(path, window.location.origin).toString();
+    const target = isGithubPages && path.startsWith("/quiz/result") ? "/" : path;
+    const href = isGithubPages ? withBasePath(target) : target;
+    return new URL(href, window.location.origin).toString();
   }
 
   async function copyWords() {

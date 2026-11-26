@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ShareActions } from "@/components/share-actions";
+import { isGithubPages } from "@/lib/hosting";
 import type { QuizResult } from "@/lib/quiz";
 
 export function ResultCard({ result }: { result: QuizResult }) {
@@ -16,6 +17,11 @@ export function ResultCard({ result }: { result: QuizResult }) {
       <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/70">
         A reflection, not a signal to spend money. Attention is not guaranteed money.
       </p>
+      {isGithubPages ? (
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink/70">
+          Share the map. A link to this exact result returns when hosting is back.
+        </p>
+      ) : null}
       <div className="mt-8 text-ink">
         <ShareActions
           text={result.shareText}

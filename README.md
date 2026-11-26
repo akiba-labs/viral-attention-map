@@ -50,6 +50,13 @@ Check the production build:
 ```bash
 npm test
 npm run build
+npm run build:pages
 ```
+
+`npm run build` is the Vercel app (board, quiz, digest, JSON API). `npm run build:pages` writes a static `out/` for GitHub Pages and checks that internal links and assets resolve under `/viral-attention-map`. Server routes stay in the repo; the Pages script only moves them aside for that build.
+
+GitHub settings: **Settings → Pages → Build and deployment → Source: GitHub Actions**. Pushes to `main` deploy with `.github/workflows/pages.yml`. The copy-paste steps for the other tool repos are at the top of `scripts/build-pages.mjs`.
+
+The static copy will be https://akiba-labs.github.io/viral-attention-map/ . The Vercel app stays the home of the API.
 
 The public feed is cached for about two minutes so a burst of visitors does not hammer DexScreener.
